@@ -28,6 +28,6 @@ delivery.setDate(delivery.getDate()+7); //adds 7 from day of month
 let deliveryS=delivery.toDateString(); //so many global functions
 
 
-document.writeln('<p>${greeting} ${name} thank you for ordering :)</p>');
-document.writeln('<p>You ordered ${amount} of ${item}.</p>');
-document.writeln('Your package will arrive ${deliveryS} !!!');
+document.writeln(`<p>${greeting} ${name} thank you for ordering :)</p>`);
+document.writeln(`<p>You ordered ${amount} of ${item}.</p>`);
+document.writeln(`Your package will arrive ${deliveryS} !!!`);
