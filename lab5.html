@@ -1,0 +1,60 @@
+<!--lab 5:web development-->
+<!DOCTYPE html>
+<html lang="en">
+<!--Bootstrap Provided-->
+<head>
+    <title>Abigail Vincent | Lab 5 </title> <!--Page Title-->
+    <!--meta tags:makes sure all charcters show and adjects for screen sizes -->
+    <link rel="stylesheet" href="lab3.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      
+    <!-- bootstrap links: for color and layout, functioning buttons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<!--Bootstrap Provided-->
+<body>
+    <div class="section">
+    <header class="bg-primary text-white text-center py-2 mb-3 rounded">
+        <h1>Registration Page:</h1>
+        <h3>register for free puppies!!</h3>
+    </header>
+   <div class="inputs">
+    <h4 class="mb-3">Please fillout this form:</h4>
+
+   <!--FIRST NAME-->
+   <label for="firstName" class="fn-label">First name: </label>
+   <input type="text" id="firstName"class="form-control mb-3">
+   <!--LAST NAME-->
+   <label for="lastName" class="ln-label">Last name: </label>
+   <input type="text" id="lastName"class="form-control mb-3">
+   <!--EMAIL-->
+   <label for="email" class="email-label">Email: </label>
+   <input type="text" id="email"class="form-control mb-3">
+   <!--PASSWORD-->
+   <label for="password" class="password-label">Password: </label>
+   <input type="text" id="password"class="form-control mb-3">
+   <!--DOB-->
+   <label for="DOB" class="DOB-label">Date of Birth: </label>
+   <input type="text" id="DOB"class="form-control mb-3">
+   <!--SUBMIT FORM-->
+   <button class="btn btn-success" onclick="register()" >Register</button> <!--makes it green-->
+</div>
+<div id="output" class="success" style="display:none;">
+    <div class="ya">
+        <h4>Registration Successful!</h4>
+        <p>First Name:<span id="outputFirst"></span></p>
+        <p>Last Name:<span id="outputLast"></span></p>
+        <p>Email:<span id="outputEmail"></span></p>
+        <p>Password:<span id="outputPassword"></span></p>
+        <p>Date of birth:<span id="outputDOB"></span></p>
+    </div>
+</div>
+</div>
+<!--Connects my javafile-->
+<script src="lab5.js"></script>
+</body>
+</html>
+
