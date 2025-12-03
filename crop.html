@@ -63,32 +63,34 @@
    
     </table>
     <script>
-//--API USAGE-->
+
  function Crops(){
-    fetch('https://stardewapi.co/api/crops')//FETCH
-    .then(data=>data.json()) //RESPONSE->JSON
-    .then(Cropsdata=>{ //CROP ARRAY API DATA
-        console.log(Cropsdata);
-const crops=Cropsdata.data.crops;
+    fetch('https://stardewapi.co/api/crops')
+    .then(data=>data.json()) 
+    .then(Cropsdata=>{ 
+        const crops=Cropsdata.data.crops;
+        console.log(crops);
+
 const seasons=['fall','winter','spring','summer'];
-var table=document.getElementById('cropTable'); //GETTING TABLE BY I
+var table=document.getElementById('cropTable'); 
  
 
-      //LOOP THROUGH ALL CROPS
+      
 for(var i=0;i<crops.length;i++){
-    if(crops[i].season){ //IF CROP HAS SEASON
-    for(var j=0;j<crops[i].season.length;j++){ //LOOP ALL SEASONS CROP GROWS IN
-      //INSERT  NEW ROW
+    if(crops[i].season){ 
+    for(var j=0;j<crops[i].season.length;j++){ 
+      
         var row= table.insertRow(-1);
-        var cell=row.insertCell(0); //TWO CELLS ARE SEASON AND CROPS
+        var cell=row.insertCell(0); 
         var cell2=row.insertCell(1);
-        cell.innerHTML=crops[i].season[j];//SEASON NAME
-        cell2.innerHTML=crops[i].name;//CROP NAME
+        cell.innerHTML=crops[i].season[j];
+        cell2.innerHTML=crops[i].name;
     }
     }
  }
 
-});
+})
+.catch(error=>console.error('ERROR',error));
     }
 
     </script>
