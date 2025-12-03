@@ -63,7 +63,7 @@
    
     </table>
     <script>
-    <!--API USAGE-->
+//--API USAGE-->
 async function Crops(){
     fetch('https://stardewapi.co/api/crops')//FETCH
     .then(data=>data.json()) //RESPONSE->JSON
@@ -72,7 +72,7 @@ const crops=Cropsdata.data.crops;
 const seasons=['fall','winter','spring','summer'];
 var table=document.getElementById('cropTable'); //GETTING TABLE BY I
  
-table.innerHTML='<tr><th>Season: </th><th>Crop Name:</th></tr>'; //CLEAR  TABLE
+
       //LOOP THROUGH ALL CROPS
 for(var i=0;i<crops.length;i++){
     if(crops[i].season){ //IF CROP HAS SEASON
