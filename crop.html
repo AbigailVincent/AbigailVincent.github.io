@@ -64,34 +64,22 @@
     </table>
     <script>
 
- function Crops(){
-    fetch('https://stardewapi.co/api/crops')
-    .then(data=>data.json()) 
-    .then(Cropsdata=>{ 
-        const crops=Cropsdata.data.crops;
-        console.log(crops);
+ function Crops(){ 
+    fetch('https://stardewapi.co/api/crops/fall')
+    .then(resp=>resp.json()) 
+    .then(data=>{ 
+        const crops=data.data;
+        const table=document.getElementById("cropTable");
 
-const seasons=['fall','winter','spring','summer'];
-var table=document.getElementById('cropTable'); 
- 
+ crops.forEach(crop=>{
+    const row=table.insertRow();
+    row.insertCell(0).innerHTML="Fall";
+    row.insertCell(1).innerHTML=crop.name;
+ });
+    });
 
-      
-for(var i=0;i<crops.length;i++){
-    if(crops[i].season){ 
-    for(var j=0;j<crops[i].season.length;j++){ 
-      
-        var row= table.insertRow(-1);
-        var cell=row.insertCell(0); 
-        var cell2=row.insertCell(1);
-        cell.innerHTML=crops[i].season[j];
-        cell2.innerHTML=crops[i].name;
-    }
-    }
- }
-
-})
-.catch(error=>console.error('ERROR',error));
-    }
+}
+    
 
     </script>
     </body>
