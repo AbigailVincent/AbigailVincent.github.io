@@ -68,6 +68,7 @@
     fetch('https://stardewapi.co/api/crops')//FETCH
     .then(data=>data.json()) //RESPONSE->JSON
     .then(Cropsdata=>{ //CROP ARRAY API DATA
+        console.log(Cropsdata);
 const crops=Cropsdata.data.crops;
 const seasons=['fall','winter','spring','summer'];
 var table=document.getElementById('cropTable'); //GETTING TABLE BY I
