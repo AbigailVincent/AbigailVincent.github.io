@@ -16,29 +16,33 @@
      <style>
        /*STYLING  (CENTERING,COLORS,PICTURES,ETC)*/
     body{
-        background-color:CornflowerBlue;
-        text-align:center;
+        background-image:url(https://i.pinimg.com/736x/9d/03/54/9d0354c151466c539f11884eb67c2824.jpg);
+        background-repeat:no-repeat;
+        background-attachment: fixed;
+        background-size:cover;
+        background-position:center;
+        margin: 20px;
         color:black;
-        margin-top:100px;
         font-family:'Courier';
     }
      h1{
     text-align:center;
-        color:black;
+        color:rgb(236, 230, 230);
         margin-top:20px;
         font-family:'Courier New';}
      
      table{
         margin: 20px;
-        width:80%;
-        background-color: rgb(122, 83, 159);
+        width:85%;
+        background-color:white;
      }
      th, td{
         border:1px black;
         padding: 4px;
-        background-color: rgb(122, 83, 159);
+        background-color: rgb(220, 214, 224);
      }
      button{
+        text-align:center;
         padding:10px;
         margin: 20px;
         font-size:14px;
@@ -50,7 +54,7 @@
 <body>
     <h1>Stardew Valley Crops by Season</h1>
   <!--BUTTON-->
-    <button onclick="Crops()">crops</button>
+    <button id="cropBtn">crops</button>
   <!--TABLE-->
     <table id="cropTable">
     <tr>
@@ -64,23 +68,76 @@
     </table>
     <script>
 
- function Crops(){ 
-    fetch('https://stardewapi.co/api/crops/fall')
-    .then(resp=>resp.json()) 
-    .then(data=>{ 
-        const crops=data.data;
-        const table=document.getElementById("cropTable");
+        function Crops(){ 
 
- crops.forEach(crop=>{
-    const row=table.insertRow();
-    row.insertCell(0).innerHTML="Fall";
-    row.insertCell(1).innerHTML=crop.name;
- });
-    });
+            fetch('https://stardewapi.co/api/crops/season/fall')
+            .then((resp)=>resp.json()) 
+            .then(data=>{ 
+                console.log(data)
+                const table=document.getElementById("cropTable");
+                const row=table.insertRow();
+                row.insertCell(0).innerHTML="Fall";
+                let croplist="";
+            data.forEach(function(crop,index){
+                croplist+=crop.name;
+                if(index<data.length-1){
+                    croplist +=", ";
+                }
+                });
+                row.insertCell(1).innerHTML=croplist;
+            });
+                fetch('https://stardewapi.co/api/crops/season/spring')
+            .then((resp)=>resp.json()) 
+            .then(data=>{ 
+                console.log(data)
+                const table=document.getElementById("cropTable");
+                const row=table.insertRow();
+                row.insertCell(0).innerHTML="Spring";
+                let croplist="";
+            data.forEach(function(crop,index){
+                croplist+=crop.name;
+                if(index<data.length-1){
+                    croplist +=", ";
+                }
+                });
+                row.insertCell(1).innerHTML=croplist;
+            });
+                 fetch('https://stardewapi.co/api/crops/season/summer')
+            .then((resp)=>resp.json()) 
+            .then(data=>{ 
+                console.log(data)
+                const table=document.getElementById("cropTable");
+                const row=table.insertRow();
+                row.insertCell(0).innerHTML="Summer";
+                let croplist="";
+            data.forEach(function(crop,index){
+                croplist+=crop.name;
+                if(index<data.length-1){
+                    croplist +=", ";
+                }
+                });
+                row.insertCell(1).innerHTML=croplist;
+            });
+                 fetch('https://stardewapi.co/api/crops/season/winter')
+            .then((resp)=>resp.json()) 
+            .then(data=>{ 
+                console.log(data)
+                const table=document.getElementById("cropTable");
+                const row=table.insertRow();
+                row.insertCell(0).innerHTML="Winter";
+                let croplist="";
+            data.forEach(function(crop,index){
+                croplist+=crop.name;
+                if(index<data.length-1){
+                    croplist +=", ";
+                }
+                });
+                row.insertCell(1).innerHTML=croplist;
+            });
 
-}
+        }
     
-
+        document.getElementById("cropBtn").addEventListener("click", Crops);
     </script>
     </body>
  </html>
