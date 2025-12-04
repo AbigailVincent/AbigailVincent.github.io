@@ -53,8 +53,7 @@
 <!--Bootstrap Provided-->
 <body>
     <h1>Stardew Valley Crops by Season</h1>
-  <!--BUTTON-->
-    <button id="cropBtn">crops</button>
+ 
   <!--TABLE-->
     <table id="cropTable">
     <tr>
@@ -66,6 +65,17 @@
 <!--DATA HEREEEE-->
    
     </table>
+    <table id="ForageableTable">
+    <tr>
+        <th>Forageables:
+        </th>
+        
+    </tr>
+    
+<!--DATA HEREEEE-->
+   
+    </table>
+
     <script>
 
         function Crops(){ 
@@ -136,6 +146,25 @@
             });
 
         }
+    
+        function fetchForageable(){
+             fetch('https://stardewapi.co/api/forageables')
+            .then((resp)=>resp.json()) 
+            .then(data=>{ 
+                console.log(data)
+                const table=document.getElementById("ForageableTable");
+               data.forEach(item=>{
+                const row=table.insertRow();
+                row.insertCell(0).textContent=item.name;
+               })
+                
+            });
+        }
+        Crops();
+            fetchForageable();
+    </script>
+    </body>
+ </html>
     
         document.getElementById("cropBtn").addEventListener("click", Crops);
     </script>
